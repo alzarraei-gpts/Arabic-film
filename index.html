@@ -366,17 +366,44 @@ renderSocials();
 <script>
   ...
 </script>
+
 <script>
-function clearSearch(){
+function updateClearSearchState(){
   const input = document.getElementById('search');
   const box = document.getElementById('searchBox');
+  if(!input || !box) return;
+  box.classList.toggle('has-value', input.value.trim().length > 0);
+}
+
+function clearSearch(){
+  const input = document.getElementById('search');
   if(!input) return;
   input.value = '';
-  if(box) box.classList.remove('has-value');
-  searchTools();
+  updateClearSearchState();
+  if (typeof window.originalSearchTools === 'function') {
+    window.originalSearchTools();
+  } else if (typeof window.searchTools === 'function' && window.searchTools !== clearSearch) {
+    window.searchTools();
+  }
   input.focus();
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+  if (typeof window.searchTools === 'function') {
+    window.originalSearchTools = window.searchTools;
+    window.searchTools = function(){
+      updateClearSearchState();
+      return window.originalSearchTools();
+    };
+  }
+
+  const input = document.getElementById('search');
+  if(input){
+    input.addEventListener('input', updateClearSearchState);
+    updateClearSearchState();
+  }
+});
 </script>
-</script>
+
 </body>
 </html>
