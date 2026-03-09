@@ -349,7 +349,6 @@ function renderSocials() {
 document.getElementById('sectionCount').textContent = APP_DATA.sections.length;
 document.getElementById('toolCount').textContent = APP_DATA.sections.reduce((sum, s) => sum + s.tools.length, 0);
 renderSections();
-renderSocials();
 </script>
   <footer>
   ...
@@ -362,11 +361,6 @@ renderSocials();
     <p id="modalBody"></p>
   </div>
 </div>
-
-<script>
-  ...
-</script>
-
 <script>
 function updateClearSearchState(){
   const input = document.getElementById('search');
@@ -404,6 +398,43 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 </script>
+<script>
+function searchTools() {
+  const input = document.getElementById('search');
+  const query = input ? input.value.trim().toLowerCase() : '';
 
+  const cards = document.querySelectorAll('.tool-card');
+  const sections = document.querySelectorAll('.subgroup');
+  const resultCount = document.getElementById('resultCount');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const name = (card.getAttribute('data-name') || '').toLowerCase();
+    const isMatch = query === '' || name.includes(query);
+
+    card.style.display = isMatch ? '' : 'none';
+
+    if (isMatch) {
+      visibleCount++;
+      const parentSection = card.closest('.subgroup');
+      if (parentSection && query !== '') {
+        parentSection.classList.add('open');
+      }
+    }
+  });
+
+  sections.forEach(section => {
+    const visibleCards = section.querySelectorAll('.tool-card[style="display: none;"]').length;
+    const allCards = section.querySelectorAll('.tool-card').length;
+    const hasVisible = visibleCards < allCards;
+
+    section.style.display = hasVisible ? '' : 'none';
+  });
+
+  if (resultCount) {
+    resultCount.textContent = visibleCount;
+  }
+}
+</script>
 </body>
 </html>
