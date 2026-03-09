@@ -31,8 +31,11 @@ header p{margin:10px auto 0;max-width:920px;color:#d8d8d8;font-size:18px}
 .search-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .search-label{color:var(--soft);font-weight:800}
 .search-box{position:relative}
-.search-box input{width:380px;max-width:82vw;background:#101214;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:22px;padding:12px 44px 12px 18px;font-size:16px;outline:none}
+.search-box input{width:380px;max-width:82vw;background:#101214;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:22px;padding:12px 78px 12px 18px;font-size:16px;outline:none}
 .search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.55}
+.clear-search{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:none;border-radius:50%;background:rgba(255,255,255,.10);color:#fff;font-size:18px;font-weight:900;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1}
+.clear-search:hover{background:rgba(255,255,255,.18)}
+.search-box.has-value .clear-search{display:flex}
 .pack-card{background:linear-gradient(180deg,#13161a,#0f1114);border:1px solid rgba(255,255,255,.08);border-radius:30px;padding:22px;box-shadow:0 18px 48px rgba(0,0,0,.34)}
 .pack-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .pack-intro{max-width:760px}
@@ -77,6 +80,9 @@ footer{margin-top:44px;padding:30px 18px 40px;text-align:center;background:#0f11
 .social-link,.btn-link{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:10px 16px;border-radius:14px;font-weight:800}
 .btn-link{background:#090909;color:#fff;border:1px solid rgba(126,217,87,.55)}
 .social-link{background:linear-gradient(180deg,#231933,#191326);color:#f6eeff;border:1px solid rgba(192,132,252,.45);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.social-link img{width:20px;height:20px;display:block;object-fit:contain}
+.fallback-icon{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(255,255,255,.12);font-size:11px;font-weight:900;line-height:1}
+.skool-icon{width:20px;height:20px;border-radius:6px;display:inline-grid;place-items:center;background:linear-gradient(180deg,#ffb347,#ff7b00);color:#1a1200;font-size:11px;font-weight:900;line-height:1}
 .footer-copy{margin-top:12px;color:#bdbdbd;font-size:14px}
 #scrollBtn{position:fixed;bottom:18px;left:18px;background:#8de411;color:#071205;border:none;padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.24)}
 @media (max-width:900px){.tools-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}.tool-info{grid-template-columns:1fr}}
@@ -104,8 +110,9 @@ footer{margin-top:44px;padding:30px 18px 40px;text-align:center;background:#0f11
   <div class="toolbar">
     <div class="search-wrap">
       <div class="search-label">ابحث في النماذج</div>
-      <div class="search-box">
+      <div class="search-box" id="searchBox">
         <input id="search" type="text" placeholder="ابحث باسم النموذج..." oninput="renderSections()">
+        <button class="clear-search" id="clearSearchBtn" type="button" aria-label="حذف نص البحث" onclick="clearSearch()">×</button>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
       </div>
     </div>
@@ -202,8 +209,20 @@ function sectionTemplate(section, term) {
     </section>`;
 }
 
+function clearSearch() {
+  const input = document.getElementById('search');
+  const box = document.getElementById('searchBox');
+  input.value = '';
+  if (box) box.classList.remove('has-value');
+  renderSections();
+  input.focus();
+}
+
 function renderSections() {
-  const term = document.getElementById('search').value.trim();
+  const input = document.getElementById('search');
+  const box = document.getElementById('searchBox');
+  const term = input.value.trim();
+  if (box) box.classList.toggle('has-value', term.length > 0);
   const subgroups = document.getElementById('subgroups');
   const html = APP_DATA.sections.map(section => sectionTemplate(section, term)).join('');
   subgroups.innerHTML = html || '<div class="empty-state">لم يتم العثور على نماذج مطابقة لطلب البحث.</div>';
@@ -243,17 +262,21 @@ function renderSocials() {
     'لينكدين': './linkedin.svg',
     'البريد الإلكتروني': './gmail.svg',
     'باي بال': './paypal.svg'
+    , 'سكول': null
   };
   const fallbackMap = {
     'رقم الواتساب': 'WA',
     'تليغرام': 'TG',
-    'تيك توك': 'TT'
+    'تيك توك': 'TT',
+    'سكول': 'SK'
   };
   wrap.innerHTML = APP_DATA.socials.map(item => {
     const label = item[0];
     const href = item[1];
     const icon = iconMap[label];
-    const iconHtml = icon
+    const iconHtml = label === "سكول"
+      ? `<span class="skool-icon">SK</span>`
+      : icon
       ? `<img src="${icon}" alt="${esc(label)}">`
       : `<span class="fallback-icon">${fallbackMap[label] || label.slice(0,2)}</span>`;
     return `<a class="social-link" href="${esc(href)}" target="_blank" rel="noopener">${iconHtml}<span>${esc(label)}</span></a>`;
