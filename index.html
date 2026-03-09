@@ -31,8 +31,49 @@ header p{margin:10px auto 0;max-width:920px;color:#d8d8d8;font-size:18px}
 .search-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .search-label{color:var(--soft);font-weight:800}
 .search-box{position:relative}
-.search-box input{width:380px;max-width:82vw;background:#101214;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:22px;padding:12px 44px 12px 18px;font-size:16px;outline:none}
-.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.55}
+.search-box input{
+  width:380px;
+  max-width:82vw;
+  background:#101214;
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  border-radius:22px;
+  padding:12px 74px 12px 18px;
+  font-size:16px;
+  outline:none;
+}
+.search-box svg{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.55;
+}
+.clear-search{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  width:30px;
+  height:30px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+}
+.clear-search:hover{
+  background:rgba(255,255,255,.18);
+}
+.search-box.has-value .clear-search{
+  display:flex;
+}
 .pack-card{background:linear-gradient(180deg,#13161a,#0f1114);border:1px solid rgba(255,255,255,.08);border-radius:30px;padding:22px;box-shadow:0 18px 48px rgba(0,0,0,.34)}
 .pack-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .pack-intro{max-width:760px}
@@ -104,10 +145,13 @@ footer{margin-top:44px;padding:30px 18px 40px;text-align:center;background:#0f11
   <div class="toolbar">
     <div class="search-wrap">
       <div class="search-label">ابحث في النماذج</div>
-      <div class="search-box">
-        <input id="search" type="text" placeholder="ابحث باسم النموذج..." oninput="renderSections()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </div>
+     <div class="search-box" id="searchBox">
+  <input id="search" type="text" placeholder="ابحث باسم النموذج..." oninput="searchTools()">
+  <button class="clear-search" type="button" aria-label="حذف نص البحث" onclick="clearSearch()">×</button>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <path d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+</div>
     </div>
     <div class="results">النتائج: <span id="resultCount">0</span> نموذج</div>
   </div>
@@ -322,6 +366,17 @@ renderSocials();
 <script>
   ...
 </script>
-
+<script>
+function clearSearch(){
+  const input = document.getElementById('search');
+  const box = document.getElementById('searchBox');
+  if(!input) return;
+  input.value = '';
+  if(box) box.classList.remove('has-value');
+  searchTools();
+  input.focus();
+}
+</script>
+</script>
 </body>
 </html>
