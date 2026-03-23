@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=WrtEVuwxJjLgiuPOucAFH6k3YIx4zyLIhQ9t4VOeZpyydGCVpR9LWCyD2IVxSxIx6hqgQrT4iHde-Wl0g8wR7VlkmpW8TUuGX2ictdVR7KqtCkkMQfwiKrRTPiyiss6RJ41jQSKowmOr8FSf9kZb0jcLjd0X3bGV189kd4Tp6-v70lr9XA9XnfQo55-sfNPXjxUBWrxKGDTOHqIzYU-uNLAFcryCxB1Vs8C9VToUTB41ysMqoia6u5VcPYNXPnhf-_2v630IUY2jvSUnPVGz5Q" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EPJ_kwZMdlZjxggDM05T_TDMvsiIZxnWlP7Rzid_fhKd1E0lkFo4_fLMNKYQWjZjKDudB9sZ5k2K7g9mLCZmIyNeBPHYfPlN_WD6ctnuJZFXdop9watAkK6Jj33SsdJHQo_19jAgTOo3-UMqRXwO7WCk1RCFZeKuDfQhLS-MBANNeK7QcRmUnL5tyR_UFIwzDtAOkvPsj8cxdrqlqUwTN6xT9dUrAWsYKAOd1HuQ1I5sSIY3WGnrO78O2MAlp0WNQ-_O5DzknL1gdyb85Q2fYg" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=7qi_AoOTxrqpbuJbS3v3FVHXuiYwJqcWf3637l3wUlT1QNGirK4LhgscB0T1bCFMr7YuaIDn1WRWlYJak-DUUyHhkr891TBfnnzrzR5Q5Yi77fYm_gVkJ9JY6ZOrQoGyYjE5_nxICbHV1UMu_RbNeTp74THWbBFUIvDNMfRqlxzYK33RXcJWNlIMAhH_kgtc0FKFUfQMaIwzG9P9aIwmOCEgQKGXBxUoJ_WkNggwRp0DQaG88pRKYD0CC-xFz33uiniUldYxt27lnlGw6o8fzA" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=WrtEVuwxJjLgiuPOucAFH6k3YIx4zyLIhQ9t4VOeZpyydGCVpR9LWCyD2IVxSxIx6hqgQrT4iHde-Wl0g8wR7VlkmpW8TUuGX2ictdVR7KqtCkkMQfwiKrRTPiyiss6RJ41jQSKowmOr8FSf9kZb0jcLjd0X3bGV189kd4Tp6-v70lr9XA9XnfQo55-sfNPXjxUBWrxKGDTOHqIzYU-uNLAFcryCxB1Vs8C9VToUTB41ysMqoia6u5VcPYNXPnhf-_2v630IUY2jvSUnPVGz5Q" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EPJ_kwZMdlZjxggDM05T_TDMvsiIZxnWlP7Rzid_fhKd1E0lkFo4_fLMNKYQWjZjKDudB9sZ5k2K7g9mLCZmIyNeBPHYfPlN_WD6ctnuJZFXdop9watAkK6Jj33SsdJHQo_19jAgTOo3-UMqRXwO7WCk1RCFZeKuDfQhLS-MBANNeK7QcRmUnL5tyR_UFIwzDtAOkvPsj8cxdrqlqUwTN6xT9dUrAWsYKAOd1HuQ1I5sSIY3WGnrO78O2MAlp0WNQ-_O5DzknL1gdyb85Q2fYg" charset="UTF-8"></script><style>
 *{box-sizing:border-box}
 :root{
   --bg:#060809;
@@ -235,6 +235,7 @@ button,input,a{touch-action:manipulation}
         <button type="button" class="topbar-modal-btn" data-modal-title="دوراتنا" data-modal-key="courses" onclick="openTopbarModal('courses', 'دوراتنا')">دوراتنا</button>
         <button type="button" class="topbar-modal-btn" data-modal-title="جديدنا" data-modal-key="news" onclick="openTopbarModal('news', 'جديدنا')">جديدنا</button>
         <button type="button" class="topbar-modal-btn" data-modal-title="روابط" data-modal-key="links" onclick="openTopbarModal('links', 'روابط')">روابط</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="الباقات" data-modal-key="packages" onclick="openTopbarModal('packages', 'الباقات')">الباقات</button>
       </div>
     </div>
   </div>
@@ -1067,7 +1068,35 @@ button,input,a{touch-action:manipulation}
   <button class="scroll-top" id="scrollTopBtn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-const staticContent = {"about": "تُعدّ باقة صناعة الأفلام منظومة متخصصة من النماذج والأدوات الذكية المصمَّمة لدعم صانع الفيلم العربي في مختلف مراحل الإنتاج البصري. تضم هذه الباقة مجموعة من البوتات التي تساعد على ابتكار الفكرة، وصياغة الرؤية الإخراجية، وبناء اللقطات، وتحويل الصور إلى أوصاف سينمائية دقيقة، وتوليد المشاهد من النصوص، وإنشاء ستوري بورد مبدئي، وضبط الشخصيات واتساقها عبر المشاهد. كما توفّر أدوات داعمة للصوت، والحركة، والإضاءة، وتوجيه الكاميرا، بما يمكّن المبدع من تطوير مشروعه السينمائي بكفاءة أعلى وجودة بصرية أدق. وقد صُمِّمت نماذج هذه الباقة لتعمل كمساعد إبداعي وتقني يرافق صانع الفيلم خطوة بخطوة، من التصور الأول إلى الإخراج النهائي.", "who": "تندرج باقة صناعة الأفلام ضمن مشروع «النماذج العربية الذكية» الذي أسسه د. عبدالرحمن الزراعي، المتخصص في بناء النماذج المخصصة وتطوير تعليماتها التشغيلية عالية الجودة. وقد نشأت هذه الباقة نتيجة اشتغال عملي على توظيف الذكاء الاصطناعي في الحقول البصرية والسينمائية، مع الحرص على أن تكون الأدوات المنتَجة منضبطة، واضحة، قابلة للتطبيق، ومتلائمة مع احتياجات المستخدم العربي في السرد المرئي والإنتاج الإبداعي.", "courses": "نقدّم دورات تدريبية متخصصة في صناعة الأفلام بالذكاء الاصطناعي، تشمل التعرف على الأدوات الأساسية، وإنشاء شخصيات متسقة، وضبط اللقطات وحركات الكاميرا، وصناعة الستوري بورد، ومعالجة الصوت والكلام، ومحاكاة الشفاه، وتجميع المشاهد وإخراجها بجودة احترافية.\n\nكما نقدّم ورشًا عملية تعرّف المتدرب بكيفية بناء محتوى مرئي هادف باستخدام ChatGPT وأدوات التوليد البصري والصوتي، مع تطبيق مباشر على مشاريع قصيرة قابلة للنشر أو التطوير.", "news": "نعمل باستمرار على تطوير أدوات جديدة داخل باقة صناعة الأفلام لتلبية احتياجات المخرجين وصناع المحتوى والمهتمين بالرسوم المتحركة والإعلان البصري. وتصدر هذه التحديثات بصورة دورية، مصحوبة بإرشادات استخدام ومواد تعليمية تساعد المستخدم على الإفادة الكاملة من الأدوات الجديدة، بما يسهم في رفع جودة المحتوى البصري وتسريع إنجازه.", "links": "نوفر موارد تعليمية وروابط إرشادية تساعد المستخدم على فهم النماذج الذكية وآلية توظيفها في صناعة الأفلام والمحتوى السينمائي، مع أمثلة عملية ومواد قابلة للتحميل والتطبيق الفوري.\n\nرابط الكتب التعليمية:\nhttps://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/"};
+const staticContent = {
+  about: `تُعدّ باقة صناعة الأفلام منظومة متخصصة من النماذج والأدوات الذكية المصمَّمة لدعم صانع الفيلم العربي في مختلف مراحل الإنتاج البصري. تضم هذه الباقة مجموعة من البوتات التي تساعد على ابتكار الفكرة، وصياغة الرؤية الإخراجية، وبناء اللقطات، وتحويل الصور إلى أوصاف سينمائية دقيقة، وتوليد المشاهد من النصوص، وإنشاء ستوري بورد مبدئي، وضبط الشخصيات واتساقها عبر المشاهد. كما توفّر أدوات داعمة للصوت، والحركة، والإضاءة، وتوجيه الكاميرا، بما يمكّن المبدع من تطوير مشروعه السينمائي بكفاءة أعلى وجودة بصرية أدق. وقد صُمِّمت نماذج هذه الباقة لتعمل كمساعد إبداعي وتقني يرافق صانع الفيلم خطوة بخطوة، من التصور الأول إلى الإخراج النهائي.`,
+  who: `تندرج باقة صناعة الأفلام ضمن مشروع «النماذج العربية الذكية» الذي أسسه د. عبدالرحمن الزراعي، المتخصص في بناء النماذج المخصصة وتطوير تعليماتها التشغيلية عالية الجودة. وقد نشأت هذه الباقة نتيجة اشتغال عملي على توظيف الذكاء الاصطناعي في الحقول البصرية والسينمائية، مع الحرص على أن تكون الأدوات المنتَجة منضبطة، واضحة، قابلة للتطبيق، ومتلائمة مع احتياجات المستخدم العربي في السرد المرئي والإنتاج الإبداعي.`,
+  courses: `نقدّم دورات تدريبية متخصصة في صناعة الأفلام بالذكاء الاصطناعي، تشمل التعرف على الأدوات الأساسية، وإنشاء شخصيات متسقة، وضبط اللقطات وحركات الكاميرا، وصناعة الستوري بورد، ومعالجة الصوت والكلام، ومحاكاة الشفاه، وتجميع المشاهد وإخراجها بجودة احترافية.
+
+كما نقدّم ورشًا عملية تعرّف المتدرب بكيفية بناء محتوى مرئي هادف باستخدام ChatGPT وأدوات التوليد البصري والصوتي، مع تطبيق مباشر على مشاريع قصيرة قابلة للنشر أو التطوير.`,
+  news: `نعمل باستمرار على تطوير أدوات جديدة داخل باقة صناعة الأفلام لتلبية احتياجات المخرجين وصناع المحتوى والمهتمين بالرسوم المتحركة والإعلان البصري. وتصدر هذه التحديثات بصورة دورية، مصحوبة بإرشادات استخدام ومواد تعليمية تساعد المستخدم على الإفادة الكاملة من الأدوات الجديدة، بما يسهم في رفع جودة المحتوى البصري وتسريع إنجازه.`,
+  links: `نوفر موارد تعليمية وروابط إرشادية تساعد المستخدم على فهم النماذج الذكية وآلية توظيفها في صناعة الأفلام والمحتوى السينمائي، مع أمثلة عملية ومواد قابلة للتحميل والتطبيق الفوري.
+
+رابط الكتب التعليمية:
+https://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/`,
+  packages: `باقة الباحث:
+https://alzarraei-gpts.github.io/Arabic-GPT-Hub/
+
+باقة التعليم:
+https://github.com/alzarraei-gpts/Arabic-Learn
+
+باقة المصمم:
+https://alzarraei-gpts.github.io/Arabic-design/
+
+باقة الأفلام:
+https://alzarraei-gpts.github.io/Arabic-film/
+
+باقة الإدارة:
+https://alzarraei-gpts.github.io/Arabic-management/
+
+باقة البوتات:
+https://github.com/alzarraei-gpts/Arabic-Bots`
+};
 
 function escapeHtml(value) {
   return value
