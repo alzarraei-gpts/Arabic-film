@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=nOE2UnJWbJxaRiBp-GEy97Yn0fjUtYDaFWrNrGv-RgJ38_llF_WWUh-a19sAx_AIr_Sb08iGBLiyJb1iHSck6epLM0h511TkiFQJAkTGU-MAu_RyQtnk5qa8w0LsUTurucRcC3zLg2QQWn26vFS00wi7NWqcRmep1LD_aqK8hMcuxv4AiU3qBjAPMeKlBtUfKvch58hZZthgzM2YSe9oBmnL91rdgeK9I4r5rg1lymTFyx8tr269DkCiTZ7o-cTtV_51t_y5EfIgYch4YxOLow" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EPJ_kwZMdlZjxggDM05T_TDMvsiIZxnWlP7Rzid_fhKd1E0lkFo4_fLMNKYQWjZjKDudB9sZ5k2K7g9mLCZmIyNeBPHYfPlN_WD6ctnuJZFXdop9watAkK6Jj33SsdJHQo_19jAgTOo3-UMqRXwO7WCk1RCFZeKuDfQhLS-MBANNeK7QcRmUnL5tyR_UFIwzDtAOkvPsj8cxdrqlqUwTN6xT9dUrAWsYKAOd1HuQ1I5sSIY3WGnrO78O2MAlp0WNQ-_O5DzknL1gdyb85Q2fYg" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=pdMuv4hFGG2KrY7_CMXw3KUhgKeTRVfN-0HjXh--tkehp9fzUhmkyCgvQMrt5-M3Lw8xqRsaT17_Sieq-8DZXcoLIocH-hy0sm8QhYAJLa02J721xbd8l15WX8x_VFxUfkUr7hI3FeOTz79oU6UqZyl7sslAas0VWFNnXQePTxma0jXP4zg1VfTm3xKSSdeHxVrFj_2Du9Vv2iq0nHFi7JIXzgJbc_499vjYQJGeHXjgCASeGkls6nLCWmr0JqEin6NC48MI8GfvYT-z_rT2Qg" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EPJ_kwZMdlZjxggDM05T_TDMvsiIZxnWlP7Rzid_fhKd1E0lkFo4_fLMNKYQWjZjKDudB9sZ5k2K7g9mLCZmIyNeBPHYfPlN_WD6ctnuJZFXdop9watAkK6Jj33SsdJHQo_19jAgTOo3-UMqRXwO7WCk1RCFZeKuDfQhLS-MBANNeK7QcRmUnL5tyR_UFIwzDtAOkvPsj8cxdrqlqUwTN6xT9dUrAWsYKAOd1HuQ1I5sSIY3WGnrO78O2MAlp0WNQ-_O5DzknL1gdyb85Q2fYg" charset="UTF-8"></script><style>
 *{box-sizing:border-box}
 :root{
   --bg:#060809;
@@ -136,6 +136,12 @@ footer{margin-top:34px;padding:30px 22px 38px;background:linear-gradient(180deg,
 .social-link--iconized .social-icon{background:rgba(255,255,255,.04)}
 .social-link--iconized:hover .social-icon{box-shadow:0 0 14px rgba(141,228,17,.14)}
 .footer-copy{margin-top:18px;color:var(--soft)}
+.footer-actions button.cta{appearance:none;cursor:pointer;font-family:inherit;line-height:1.2}
+.footer-utility-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:0 0 18px}
+.footer-utility-actions .cta{text-decoration:none;min-width:170px}
+.social-icon svg{width:16px;height:16px;display:block;fill:currentColor}
+@media (max-width:760px){.footer-utility-actions{display:grid;grid-template-columns:1fr}.footer-utility-actions .cta{width:100%;justify-content:center}}
+.social-icon{font-size:.92rem;font-weight:900}
 .modal{display:none;position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.68);padding:22px;overflow:auto}
 .modal-box{max-width:860px;margin:6vh auto;background:#0e1315;border:1px solid rgba(141,228,17,.28);border-radius:24px;box-shadow:var(--shadow);padding:24px}
 .modal-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
@@ -224,11 +230,11 @@ button,input,a{touch-action:manipulation}
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-nav">
-        <button type="button" onclick="openStaticModal('وصف', staticContent.about)">وصف</button>
-        <button type="button" onclick="openStaticModal('من نحن', staticContent.who)">من نحن</button>
-        <button type="button" onclick="openStaticModal('دوراتنا', staticContent.courses)">دوراتنا</button>
-        <button type="button" onclick="openStaticModal('جديدنا', staticContent.news)">جديدنا</button>
-        <button type="button" onclick="openStaticModal('روابط', staticContent.links)">روابط</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="وصف" data-modal-key="about" onclick="openTopbarModal('about', 'وصف')">وصف</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="من نحن" data-modal-key="who" onclick="openTopbarModal('who', 'من نحن')">من نحن</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="دوراتنا" data-modal-key="courses" onclick="openTopbarModal('courses', 'دوراتنا')">دوراتنا</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="جديدنا" data-modal-key="news" onclick="openTopbarModal('news', 'جديدنا')">جديدنا</button>
+        <button type="button" class="topbar-modal-btn" data-modal-title="روابط" data-modal-key="links" onclick="openTopbarModal('links', 'روابط')">روابط</button>
       </div>
     </div>
   </div>
@@ -1026,17 +1032,22 @@ button,input,a{touch-action:manipulation}
           <a class="cta secondary" href="https://arabic-gpts.github.io/web/" target="_blank" rel="noopener">جميع الباقات</a>
           <a class="cta secondary" href="https://chatgpt.com/g/g-681f47498138819197d357982c29544c-lnmdhj-l-rby-ldhky-arabic-gpt" target="_blank" rel="noopener">العروض والتخفيضات</a>
         </div>
+        <div class="footer-utility-actions">
+          <button type="button" class="cta primary" id="fullGuideBtn">شرح كامل</button>
+          <button type="button" class="cta primary" id="shortGuideBtn">شرح مختصر</button>
+          <button type="button" class="cta secondary" id="discountCodeBtn">كود الخصم</button>
+        </div>
         <div class="footer-links">
-          <a class="social-link social-link--iconized" href="https://wa.me/966552191598" target="_blank" rel="noopener"><span class="social-icon"><img src="whatsapp.png" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">رقم الواتساب</span></a>
-          <a class="social-link social-link--iconized" href="https://t.me/zraiee" target="_blank" rel="noopener"><span class="social-icon"><img src="telegram.png" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">تليغرام</span></a>
-          <a class="social-link social-link--iconized" href="https://www.instagram.com/alzarraei.gpts/" target="_blank" rel="noopener"><span class="social-icon"><img src="instagram.png" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">انستغرام</span></a>
-          <a class="social-link social-link--iconized" href="https://www.facebook.com/alzarraei.gpts/" target="_blank" rel="noopener"><span class="social-icon"><img src="facebook.svg" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">فيس بوك</span></a>
-          <a class="social-link social-link--iconized" href="https://www.youtube.com/@shaifarah" target="_blank" rel="noopener"><span class="social-icon"><img src="youtube.svg" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">يوتيوب</span></a>
-          <a class="social-link social-link--iconized" href="https://www.tiktok.com/@alzarraei" target="_blank" rel="noopener"><span class="social-icon"><img src="tiktok.png" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">تيك توك</span></a>
-          <a class="social-link social-link--iconized" href="https://www.linkedin.com/in/abdulrahman-alzarraei/" target="_blank" rel="noopener"><span class="social-icon"><img src="linkedin.svg" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">لينكدين</span></a>
-          <a class="social-link social-link--iconized" href="mailto:zraieee@gmail.com" title="zraieee@gmail.com" aria-label="البريد الإلكتروني: zraieee@gmail.com"><span class="social-icon"><img src="gmail.svg" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="email-label">البريد الإلكتروني</span></a>
-          <a class="social-link social-link--iconized" href="https://www.paypal.com/paypalme/zraiee" target="_blank" rel="noopener"><span class="social-icon"><img src="paypal.svg" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">باي بال</span></a>
-          <a class="social-link social-link--iconized" href="https://www.skool.com/zraiee-3956/about" target="_blank" rel="noopener"><span class="social-icon"><img src="Skool.png" alt="" onerror="this.closest('.social-icon')?.remove();this.closest('.social-link')?.classList.add('no-icon')"></span><span class="social-label">سكول</span></a>
+          <a class="social-link social-link--iconized" href="https://wa.me/966552191598" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.07 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.15 1.59 5.96L0 24l6.32-1.66a11.86 11.86 0 0 0 5.75 1.47h.01c6.57 0 11.91-5.34 11.91-11.9 0-3.18-1.24-6.16-3.47-8.43ZM12.08 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.22-3.75.98 1-3.66-.24-.37A9.88 9.88 0 0 1 2.18 11.9C2.18 6.44 6.62 2 12.08 2c2.65 0 5.14 1.03 7.01 2.91A9.84 9.84 0 0 1 22 11.9c0 5.46-4.45 9.9-9.92 9.9Zm5.43-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.46-.15-.65.15-.2.3-.75.97-.92 1.17-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47a8.84 8.84 0 0 1-1.65-2.05c-.17-.29-.02-.45.13-.6.13-.13.3-.34.45-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.51-.07-.15-.65-1.56-.9-2.14-.23-.55-.47-.47-.65-.48h-.55c-.2 0-.51.07-.78.37-.27.29-1.03 1-1.03 2.44 0 1.44 1.05 2.83 1.19 3.03.15.2 2.06 3.15 5 4.42.7.3 1.25.48 1.67.61.7.22 1.35.19 1.86.11.57-.08 1.77-.72 2.02-1.42.25-.71.25-1.31.17-1.43-.07-.12-.27-.2-.57-.34Z"></path></svg></span><span class="social-label">رقم الواتساب</span></a>
+          <a class="social-link social-link--iconized" href="https://t.me/zraiee" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.94 4.66c.3-1.14-.83-2.1-1.87-1.59L2.72 11.2c-1.1.52-1.02 2.12.13 2.52l4.42 1.55 1.72 5.5c.34 1.1 1.75 1.34 2.43.41l2.52-3.44 4.95 3.64c.87.64 2.1.16 2.31-.9L21.94 4.66ZM9.2 14.57l8.82-7.98-6.95 9.34-.4 3.23-1.47-4.59Z"></path></svg></span><span class="social-label">تليغرام</span></a>
+          <a class="social-link social-link--iconized" href="https://www.instagram.com/alzarraei.gpts/" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 6.6A5.4 5.4 0 1 1 6.6 12 5.41 5.41 0 0 1 12 6.6Zm0 1.8A3.6 3.6 0 1 0 15.6 12 3.6 3.6 0 0 0 12 8.4Z"></path></svg></span><span class="social-label">انستغرام</span></a>
+          <a class="social-link social-link--iconized" href="https://www.facebook.com/alzarraei.gpts/" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">f</span><span class="social-label">فيس بوك</span></a>
+          <a class="social-link social-link--iconized" href="https://www.youtube.com/@shaifarah" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">▶</span><span class="social-label">يوتيوب</span></a>
+          <a class="social-link social-link--iconized" href="https://www.tiktok.com/@alzarraei" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">♪</span><span class="social-label">تيك توك</span></a>
+          <a class="social-link social-link--iconized" href="https://www.linkedin.com/in/abdulrahman-alzarraei/" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">in</span><span class="social-label">لينكدين</span></a>
+          <a class="social-link social-link--iconized" href="mailto:zraieee@gmail.com" title="zraieee@gmail.com" aria-label="البريد الإلكتروني: zraieee@gmail.com"><span class="social-icon" aria-hidden="true">✉</span><span class="email-label">البريد الإلكتروني</span></a>
+          <a class="social-link social-link--iconized" href="https://www.paypal.com/paypalme/zraiee" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">P</span><span class="social-label">باي بال</span></a>
+          <a class="social-link social-link--iconized" href="https://www.skool.com/zraiee-3956/about" target="_blank" rel="noopener"><span class="social-icon" aria-hidden="true">S</span><span class="social-label">سكول</span></a>
         </div>
         <div class="footer-copy">إعداد: د. عبد الرحمن الزراعي — مركز علوم الدولي للذكاء الاصطناعي — جميع الحقوق محفوظة 2026</div>
       </footer>
@@ -1044,7 +1055,7 @@ button,input,a{touch-action:manipulation}
   </main>
 
   <div class="modal" id="infoModal" onclick="handleBackdrop(event)">
-    <div class="modal-box">
+    <div class="modal-box" onclick="event.stopPropagation()">
       <div class="modal-top">
         <h2 id="modalTitle">عنوان</h2>
         <button class="modal-close" type="button" onclick="closeModal()">×</button>
@@ -1056,19 +1067,7 @@ button,input,a{touch-action:manipulation}
   <button class="scroll-top" id="scrollTopBtn" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-const staticContent = {
-  about: "تُعدّ باقة صناعة الأفلام منظومة متخصصة من النماذج والأدوات الذكية المصمَّمة لدعم صانع الفيلم العربي في مختلف مراحل الإنتاج البصري. تضم هذه الباقة مجموعة من البوتات التي تساعد على ابتكار الفكرة، وصياغة الرؤية الإخراجية، وبناء اللقطات، وتحويل الصور إلى أوصاف سينمائية دقيقة، وتوليد المشاهد من النصوص، وإنشاء ستوري بورد مبدئي، وضبط الشخصيات واتساقها عبر المشاهد. كما توفّر أدوات داعمة للصوت، والحركة، والإضاءة، وتوجيه الكاميرا، بما يمكّن المبدع من تطوير مشروعه السينمائي بكفاءة أعلى وجودة بصرية أدق. وقد صُمِّمت نماذج هذه الباقة لتعمل كمساعد إبداعي وتقني يرافق صانع الفيلم خطوة بخطوة، من التصور الأول إلى الإخراج النهائي.",
-  who: "تندرج باقة صناعة الأفلام ضمن مشروع «النماذج العربية الذكية» الذي أسسه د. عبدالرحمن الزراعي، المتخصص في بناء النماذج المخصصة وتطوير تعليماتها التشغيلية عالية الجودة. وقد نشأت هذه الباقة نتيجة اشتغال عملي على توظيف الذكاء الاصطناعي في الحقول البصرية والسينمائية، مع الحرص على أن تكون الأدوات المنتَجة منضبطة، واضحة، قابلة للتطبيق، ومتلائمة مع احتياجات المستخدم العربي في السرد المرئي والإنتاج الإبداعي.",
-  courses: "نقدّم دورات تدريبية متخصصة في صناعة الأفلام بالذكاء الاصطناعي، تشمل التعرف على الأدوات الأساسية، وإنشاء شخصيات متسقة، وضبط اللقطات وحركات الكاميرا، وصناعة الستوري بورد، ومعالجة الصوت والكلام، ومحاكاة الشفاه، وتجميع المشاهد وإخراجها بجودة احترافية.
-
-كما نقدّم ورشًا عملية تعرّف المتدرب بكيفية بناء محتوى مرئي هادف باستخدام ChatGPT وأدوات التوليد البصري والصوتي، مع تطبيق مباشر على مشاريع قصيرة قابلة للنشر أو التطوير.",
-  news: "نعمل باستمرار على تطوير أدوات جديدة داخل باقة صناعة الأفلام لتلبية احتياجات المخرجين وصناع المحتوى والمهتمين بالرسوم المتحركة والإعلان البصري. وتصدر هذه التحديثات بصورة دورية، مصحوبة بإرشادات استخدام ومواد تعليمية تساعد المستخدم على الإفادة الكاملة من الأدوات الجديدة، بما يسهم في رفع جودة المحتوى البصري وتسريع إنجازه.",
-  links: "نوفر موارد تعليمية وروابط إرشادية تساعد المستخدم على فهم النماذج الذكية وآلية توظيفها في صناعة الأفلام والمحتوى السينمائي، مع أمثلة عملية ومواد قابلة للتحميل والتطبيق الفوري.
-
-رابط الكتب التعليمية:
-
-https://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/"
-};
+const staticContent = {"about": "تُعدّ باقة صناعة الأفلام منظومة متخصصة من النماذج والأدوات الذكية المصمَّمة لدعم صانع الفيلم العربي في مختلف مراحل الإنتاج البصري. تضم هذه الباقة مجموعة من البوتات التي تساعد على ابتكار الفكرة، وصياغة الرؤية الإخراجية، وبناء اللقطات، وتحويل الصور إلى أوصاف سينمائية دقيقة، وتوليد المشاهد من النصوص، وإنشاء ستوري بورد مبدئي، وضبط الشخصيات واتساقها عبر المشاهد. كما توفّر أدوات داعمة للصوت، والحركة، والإضاءة، وتوجيه الكاميرا، بما يمكّن المبدع من تطوير مشروعه السينمائي بكفاءة أعلى وجودة بصرية أدق. وقد صُمِّمت نماذج هذه الباقة لتعمل كمساعد إبداعي وتقني يرافق صانع الفيلم خطوة بخطوة، من التصور الأول إلى الإخراج النهائي.", "who": "تندرج باقة صناعة الأفلام ضمن مشروع «النماذج العربية الذكية» الذي أسسه د. عبدالرحمن الزراعي، المتخصص في بناء النماذج المخصصة وتطوير تعليماتها التشغيلية عالية الجودة. وقد نشأت هذه الباقة نتيجة اشتغال عملي على توظيف الذكاء الاصطناعي في الحقول البصرية والسينمائية، مع الحرص على أن تكون الأدوات المنتَجة منضبطة، واضحة، قابلة للتطبيق، ومتلائمة مع احتياجات المستخدم العربي في السرد المرئي والإنتاج الإبداعي.", "courses": "نقدّم دورات تدريبية متخصصة في صناعة الأفلام بالذكاء الاصطناعي، تشمل التعرف على الأدوات الأساسية، وإنشاء شخصيات متسقة، وضبط اللقطات وحركات الكاميرا، وصناعة الستوري بورد، ومعالجة الصوت والكلام، ومحاكاة الشفاه، وتجميع المشاهد وإخراجها بجودة احترافية.\n\nكما نقدّم ورشًا عملية تعرّف المتدرب بكيفية بناء محتوى مرئي هادف باستخدام ChatGPT وأدوات التوليد البصري والصوتي، مع تطبيق مباشر على مشاريع قصيرة قابلة للنشر أو التطوير.", "news": "نعمل باستمرار على تطوير أدوات جديدة داخل باقة صناعة الأفلام لتلبية احتياجات المخرجين وصناع المحتوى والمهتمين بالرسوم المتحركة والإعلان البصري. وتصدر هذه التحديثات بصورة دورية، مصحوبة بإرشادات استخدام ومواد تعليمية تساعد المستخدم على الإفادة الكاملة من الأدوات الجديدة، بما يسهم في رفع جودة المحتوى البصري وتسريع إنجازه.", "links": "نوفر موارد تعليمية وروابط إرشادية تساعد المستخدم على فهم النماذج الذكية وآلية توظيفها في صناعة الأفلام والمحتوى السينمائي، مع أمثلة عملية ومواد قابلة للتحميل والتطبيق الفوري.\n\nرابط الكتب التعليمية:\nhttps://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/"};
 
 function escapeHtml(value) {
   return value
@@ -1085,10 +1084,15 @@ function formatModalContent(content) {
   return linked.replace(/\n/g, '<br>');
 }
 
+
 function openStaticModal(title, content) {
-  document.getElementById('modalTitle').textContent = title;
-  document.getElementById('modalBody').innerHTML = formatModalContent(content);
-  document.getElementById('infoModal').style.display = 'block';
+  const titleEl = document.getElementById('modalTitle');
+  const bodyEl = document.getElementById('modalBody');
+  const modalEl = document.getElementById('infoModal');
+  if (!titleEl || !bodyEl || !modalEl) return;
+  titleEl.textContent = title;
+  bodyEl.innerHTML = formatModalContent(content);
+  modalEl.style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
 
@@ -1096,14 +1100,64 @@ function openInfoModal(title, content) {
   openStaticModal(title, content);
 }
 
+function openTopbarModal(key, title) {
+  openStaticModal(title || 'معلومة', staticContent[key] || '');
+}
+window.openTopbarModal = openTopbarModal;
+
 function closeModal() {
-  document.getElementById('infoModal').style.display = 'none';
+  const modalEl = document.getElementById('infoModal');
+  if (!modalEl) return;
+  modalEl.style.display = 'none';
   document.body.style.overflow = '';
 }
+window.closeModal = closeModal;
 
 function handleBackdrop(event) {
-  if (event.target.id === 'infoModal') closeModal();
+  const modalEl = document.getElementById('infoModal');
+  if (!modalEl) return;
+  if (event.target === modalEl) closeModal();
 }
+window.handleBackdrop = handleBackdrop;
+
+function initActionButtons() {
+  document.querySelectorAll('.topbar-modal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.modalKey;
+      const title = btn.dataset.modalTitle || 'معلومة';
+      openTopbarModal(key, title);
+    });
+  });
+
+  const fullGuideBtn = document.getElementById('fullGuideBtn');
+  if (fullGuideBtn) {
+    fullGuideBtn.addEventListener('click', () => {
+      window.open('https://github.com/alzarraei-gpts/Arabic-film/blob/main/04%20Film%20info.pdf?raw=1', '_blank', 'noopener');
+    });
+  }
+
+  const shortGuideBtn = document.getElementById('shortGuideBtn');
+  if (shortGuideBtn) {
+    shortGuideBtn.addEventListener('click', () => {
+      window.open('https://github.com/alzarraei-gpts/Arabic-film/blob/main/04%20Film.pdf?raw=1', '_blank', 'noopener');
+    });
+  }
+
+  const discountCodeBtn = document.getElementById('discountCodeBtn');
+  if (discountCodeBtn) {
+    discountCodeBtn.addEventListener('click', () => {
+      openStaticModal('كود الخصم', `🎉 تهانينا!
+
+⏳ هذا العرض مخصص لك الآن ولمدة محدودة
+لا تفوّت الفرصة — فعّل خصمك فورًا عبر التواصل المباشر
+
+⬇️ اضغط هنا للحصول على الخصم الآن
+https://wa.me/966552191598?text=أرغب%20في%20الحصول%20على%20الخصم%20الآن`);
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initActionButtons);
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
@@ -1177,11 +1231,13 @@ function findAndFocusTool(name) {
   suggestions.style.display = 'none';
 }
 
-suggestions.addEventListener('click', (e) => {
-  const btn = e.target.closest('.suggestion');
-  if (!btn) return;
-  findAndFocusTool(btn.dataset.name);
-});
+if (suggestions) {
+  suggestions.addEventListener('click', (e) => {
+    const btn = e.target.closest('.suggestion');
+    if (!btn) return;
+    findAndFocusTool(btn.dataset.name);
+  });
+}
 
 document.addEventListener('click', (e) => {
   const infoBtn = e.target.closest('.info-trigger');
@@ -1223,7 +1279,7 @@ function applySearch() {
     }
   });
 
-  resultCount.textContent = visibleCount;
+  if (resultCount) resultCount.textContent = visibleCount;
   renderSuggestions(searchInput.value);
   updateSearchClearButton();
 }
@@ -1234,8 +1290,8 @@ function clearSearch() {
   searchInput.focus();
 }
 
-searchInput.addEventListener('input', applySearch);
-clearSearchBtn.addEventListener('click', clearSearch);
+if (searchInput) searchInput.addEventListener('input', applySearch);
+if (clearSearchBtn) clearSearchBtn.addEventListener('click', clearSearch);
 applySearch();
 
 
