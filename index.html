@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=rqYo7fi6pfCnznYBi2Leus9DvPH2sQH0iJAGOzI00NIm6o3IlmUGljSrM28aUZ6uV5T_ld6XH168qB6DYoUsp3LhTfAg8evyLMDFy03pX6xT-9YjL23EGSSgmEjAjnesY78ZVOlC8Jq_2kswG78ImZrnFaNuOoc3OSjTF7GtGZR02YMoXBczWMuG11J6JsezMxuCB2WjvgdFYYLOV1hy0au1gujCDtMbuiOEa0A2edhLsaxL83FOtvYj9WZMTuqN5ORxtjj-WThnOh3UoaRh6Q" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=S-u7pbVm0Txby_ETt0gBUcvrr_A6RVsYXozjjLBF6vqQghvQeWvewBggIyidD1fPg9DczjODaQF4qvJS-y_umLwmAdbGAXr7BBeNnfOy_lVlAlYxGca0gr35hYFC8HMHQv0FbqEbtISOpT6oOAE02kjLTyKsHX4HDiYLlKDT4TspgD6IsYsCZ6zjdOM70IW6TFQivwK4CKFlYKsrpZ1DmAFYqwTT8uR5oE2X7bpFayKu1DOTtlGSsVto8VyzyeNUpCuhr0oRkaLHbHKgWAHVog" charset="UTF-8"></script><style>
 *{box-sizing:border-box}
 :root{
   --bg:#060809;
@@ -648,7 +648,7 @@ function formatModalContent(content) {
       const label = (cleanedLines[index] || cleanedLines[0] || `رابط ${links.length + 1}`).replace(/^📲\s*/, '').trim();
       const descLines = cleanedLines.filter(line => line !== label);
       const desc = descLines.join(' — ');
-      const featured = /جودة عالية|الرئيس|الكتب التعليمية|باقة المصمم|Arabic-design|سكول/i.test(label) || /https:\/\/alzarraei-gpts\.github\.io\/Arabic-design\/?/i.test(url);
+      const featured = /جودة عالية|الرئيس|الكتب التعليمية|باقة صناعة الأفلام|Arabic-film|سكول/i.test(label) || /https:\/\/alzarraei-gpts\.github\.io\/Arabic-film\/?/i.test(url);
       links.push({ label, url, desc, featured, badge: getLinkBadge(label, url) });
     });
   });
