@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=z83SFJc8SLt3_OTMKSIwFgpQSlRNuGXgRasGIsOuS3xaa4-gjZjr9ibXkoMwSkRj77LD14eLQ90iQsbHvwOCuUO9o9H7MwOp74Yzci1djqiN6TXVQs7IEOCicizoA6cakpyOCBiDaKfyltW-S8SfPvncbarjqHbyUFEm-eYzzaWOkDWvT6Ah2AsRcdKi4eBTx57QNMankgU66Dy3iNwyl5XOUUgL7VuNPEgygxK7YbfTKxQBDpEpNMgVYirz-ANjrAcingbYhF-y5jH19a-7bQ" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=BhMp0LzBIbK17AunBTNOYFxENfHi0m4ouvPVPG3tCoOKqjUjJ2DBGSBu--WmZxuO-OFBf2spJtxt8fkgvRIfT5U5lJt0RrEe-55_2Ug7SUb1wEzwLlcc4QdvliI6SBm6uvVKi_lS6Z-ZQzcGEkrxRDlAw-m6pfZz6qq6wlmRUrKZomfkxS5tesLhu86JMdC5I1Hvs52nN7sXJ1u1kmx1EQMqohtBIxZ7RLkj9fPIaj3QKVq9tTTH7mvnzLEweP_PiY5kUQA1L0w7J3pPt2Id5Q" charset="UTF-8"></script><style>
 *{box-sizing:border-box}
 :root{
   --bg:#060809;
@@ -171,13 +171,11 @@ button.cta{-webkit-appearance:none;appearance:none}
 .category-count{padding:6px 12px;border-radius:999px;background:rgba(141,228,17,.10);border:1px solid rgba(141,228,17,.18);color:#dff5c0;font-weight:900}
 .category-arrow{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#0f1517;border:1px solid rgba(255,255,255,.08);transition:transform .22s ease}
 .category.open .category-arrow{transform:rotate(180deg)}
-.category-panel{position:relative;max-height:34px;overflow:hidden;transition:max-height .34s ease}
-.category.open .category-panel{max-height:2200px}
+.category-panel{display:block;max-height:18px;overflow:hidden;transition:max-height .28s ease}
+.category.open .category-panel{max-height:2400px}
 .category-panel > div{overflow:hidden}
-.category:not(.open) .category-panel{pointer-events:none}
-.category:not(.open) .category-panel::after{content:"";position:absolute;right:0;left:0;bottom:0;height:22px;background:linear-gradient(180deg,rgba(8,11,13,0),rgba(8,11,13,.98));pointer-events:none}
-.category.open .category-panel::after{display:none}
-.tools-grid{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
+.category:not(.open) .tools-grid{padding-bottom:0}
+.tools-grid{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .tool-card{background:linear-gradient(180deg,rgba(31,44,39,.96),rgba(22,31,35,.98));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:14px;min-height:240px;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease}
 .tool-card:hover{transform:translateY(-4px);border-color:rgba(141,228,17,.42);box-shadow:0 0 0 1px rgba(141,228,17,.16),0 0 22px rgba(141,228,17,.16),0 0 42px rgba(89,215,184,.10),var(--shadow)}
 .tool-head{display:grid;gap:8px}
@@ -606,17 +604,17 @@ const staticContent = {
 رابط الكتب التعليمية:
 
 https://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/`,
-  videoLinks: `📲 رابط الكتب التعليمية:
-https://alzarraei-gpts.github.io/Arabic-GPT-Hub-books/
+  videoLinks: `📲 الرابط الأول:
+https://youtu.be/tCf6sZNxcq0?si=zZWAT1DS_D6muDdL
 
-📲 الوصول إلى تعليمات التخصيص:
-https://www.skool.com/zraiee-3956/b80b42bc?p=c99114c3
+📲 الرابط الثاني:
+https://www.youtube.com/watch?v=cB5VyUtnyzY&t=200s
 
-📲 الوصول للنماذج الذكية | البوتات:
-https://arabic-gpts.github.io/web/
+📲 الرابط الثالث بجودة عادية:
+https://www.youtube.com/watch?v=Gc9mCElTwH0&t=1142s
 
-📲 للتعليم والتطوير:
-https://www.skool.com/zraiee-3956/about`,
+📲 الرابط الثالث بجودة عالية:
+https://www.skool.com/zraiee-3956/classroom/7d7bd75f?md=ed658462309c45d381f2dd74189a982e`,
   packages: `باقة صناعة الأفلام:
 https://alzarraei-gpts.github.io/Arabic-film/
 
@@ -678,7 +676,7 @@ function formatModalContent(content) {
       const label = (cleanedLines[index] || cleanedLines[0] || `رابط ${links.length + 1}`).replace(/^📲\s*/, '').trim();
       const descLines = cleanedLines.filter(line => line !== label);
       const desc = descLines.join(' — ');
-      const featured = /جودة عالية|الرئيس|الكتب التعليمية|باقة المصمم|Arabic-design|سكول/i.test(label) || /https:\/\/alzarraei-gpts\.github\.io\/Arabic-design\/?/i.test(url);
+      const featured = /جودة عالية|الرئيس|باقة صناعة الأفلام|Arabic-film|الرابط الأول|الرابط الثاني|الرابط الثالث/i.test(label) || /https:\/\/(?:alzarraei-gpts\.github\.io\/Arabic-film\/?|(?:www\.)?youtu(?:\.be|be\.com)\/|www\.skool\.com\/zraiee-3956\/classroom\/)/i.test(url);
       links.push({ label, url, desc, featured, badge: getLinkBadge(label, url) });
     });
   });
