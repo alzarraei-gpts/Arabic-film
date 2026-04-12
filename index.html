@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=S-u7pbVm0Txby_ETt0gBUcvrr_A6RVsYXozjjLBF6vqQghvQeWvewBggIyidD1fPg9DczjODaQF4qvJS-y_umLwmAdbGAXr7BBeNnfOy_lVlAlYxGca0gr35hYFC8HMHQv0FbqEbtISOpT6oOAE02kjLTyKsHX4HDiYLlKDT4TspgD6IsYsCZ6zjdOM70IW6TFQivwK4CKFlYKsrpZ1DmAFYqwTT8uR5oE2X7bpFayKu1DOTtlGSsVto8VyzyeNUpCuhr0oRkaLHbHKgWAHVog" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=z83SFJc8SLt3_OTMKSIwFgpQSlRNuGXgRasGIsOuS3xaa4-gjZjr9ibXkoMwSkRj77LD14eLQ90iQsbHvwOCuUO9o9H7MwOp74Yzci1djqiN6TXVQs7IEOCicizoA6cakpyOCBiDaKfyltW-S8SfPvncbarjqHbyUFEm-eYzzaWOkDWvT6Ah2AsRcdKi4eBTx57QNMankgU66Dy3iNwyl5XOUUgL7VuNPEgygxK7YbfTKxQBDpEpNMgVYirz-ANjrAcingbYhF-y5jH19a-7bQ" charset="UTF-8"></script><style>
 *{box-sizing:border-box}
 :root{
   --bg:#060809;
@@ -171,10 +171,13 @@ button.cta{-webkit-appearance:none;appearance:none}
 .category-count{padding:6px 12px;border-radius:999px;background:rgba(141,228,17,.10);border:1px solid rgba(141,228,17,.18);color:#dff5c0;font-weight:900}
 .category-arrow{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#0f1517;border:1px solid rgba(255,255,255,.08);transition:transform .22s ease}
 .category.open .category-arrow{transform:rotate(180deg)}
-.category-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}
-.category.open .category-panel{grid-template-rows:1fr}
+.category-panel{position:relative;max-height:34px;overflow:hidden;transition:max-height .34s ease}
+.category.open .category-panel{max-height:2200px}
 .category-panel > div{overflow:hidden}
-.tools-grid{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.category:not(.open) .category-panel{pointer-events:none}
+.category:not(.open) .category-panel::after{content:"";position:absolute;right:0;left:0;bottom:0;height:22px;background:linear-gradient(180deg,rgba(8,11,13,0),rgba(8,11,13,.98));pointer-events:none}
+.category.open .category-panel::after{display:none}
+.tools-grid{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start}
 .tool-card{background:linear-gradient(180deg,rgba(31,44,39,.96),rgba(22,31,35,.98));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:14px;min-height:240px;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease}
 .tool-card:hover{transform:translateY(-4px);border-color:rgba(141,228,17,.42);box-shadow:0 0 0 1px rgba(141,228,17,.16),0 0 22px rgba(141,228,17,.16),0 0 42px rgba(89,215,184,.10),var(--shadow)}
 .tool-head{display:grid;gap:8px}
@@ -462,6 +465,33 @@ button,input,a{touch-action:manipulation}
   .feature-actions .cta{min-width:0}
 }
 
+
+
+/* ===== Accordion heads for tool meta ===== */
+.tool-card{position:relative;overflow:hidden}
+.tool-card-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:2px;padding:10px 12px;border-radius:14px;border:1px dashed rgba(141,228,17,.22);background:linear-gradient(180deg,rgba(16,22,25,.92),rgba(11,15,18,.96));color:#eef5f2;cursor:pointer;font-weight:900;transition:border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease}
+.tool-card-toggle:hover{border-color:rgba(141,228,17,.42);background:linear-gradient(180deg,rgba(18,25,29,.98),rgba(13,18,21,.98));transform:translateY(-1px);box-shadow:0 12px 24px rgba(0,0,0,.14)}
+.tool-card-toggle .toggle-copy,.tool-card-toggle .toggle-state{display:inline-flex;align-items:center;gap:10px}
+.tool-card-toggle .toggle-state{font-size:.9rem;color:#dff5c0}
+.tool-card-toggle .toggle-arrow{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);transition:transform .24s ease}
+.tool-meta-shell{display:grid;gap:10px}
+.tool-meta-preview{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;max-height:24px;overflow:hidden;padding:0 2px;opacity:.95;transition:max-height .26s ease,opacity .2s ease}
+.tool-meta-preview::after{content:"";flex:1 0 100%;height:0}
+.tool-head-pill{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 12px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.08);color:#dfe7ef;font-weight:900;font-size:.84rem;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.tool-meta-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}
+.tool-meta-body > .tool-meta{overflow:hidden;margin-top:0;min-height:0}
+.tool-card .tool-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;pointer-events:none;opacity:0;transform:translateY(-6px);transition:opacity .22s ease,transform .22s ease}
+.tool-card.tool-open .tool-meta-body{grid-template-rows:1fr}
+.tool-card.tool-open .tool-meta{pointer-events:auto;opacity:1;transform:none;padding-top:2px}
+.tool-card.tool-open .tool-meta-preview{max-height:0;opacity:0;overflow:hidden}
+.tool-card.tool-open .tool-card-toggle{border-style:solid;border-color:rgba(141,228,17,.38);background:linear-gradient(180deg,rgba(27,44,35,.88),rgba(14,22,20,.96))}
+.tool-card.tool-open .tool-card-toggle .toggle-arrow{transform:rotate(180deg)}
+.tool-card.tool-open{border-color:rgba(141,228,17,.34);box-shadow:0 0 0 1px rgba(141,228,17,.12),0 14px 34px rgba(0,0,0,.18),var(--shadow)}
+@media (max-width:760px){
+  .tool-card-toggle{padding:10px 11px}
+  .tool-head-pill{font-size:.8rem;min-height:28px;padding:5px 10px}
+}
+
 </style>
 </head>
 <body>
@@ -543,7 +573,7 @@ button,input,a{touch-action:manipulation}
 <a class="social-link social-link--iconized" href="https://www.instagram.com/alzarraei.gpts/" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/instagram.svg"/></span><span class="social-label">انستغرام</span></a>
 <a class="social-link social-link--iconized" href="https://www.facebook.com/alzarraei.gpts/" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/facebook.svg"/></span><span class="social-label">فيس بوك</span></a>
 <a class="social-link social-link--iconized" href="https://www.youtube.com/@shaifarah" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/youtube.svg"/></span><span class="social-label">يوتيوب</span></a>
-<a class="social-link social-link--iconized" href="https://www.tiktok.com/@arabic.ai.models/" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/tiktok.png"/></span><span class="social-label">تيك توك</span></a>
+<a class="social-link social-link--iconized" href="https://www.tiktok.com/@alzarraei" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/tiktok.png"/></span><span class="social-label">تيك توك</span></a>
 <a class="social-link social-link--iconized" href="https://www.linkedin.com/in/abdulrahman-alzarraei/" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/linkedin.svg"/></span><span class="social-label">لينكدين</span></a>
 <a aria-label="البريد الإلكتروني: zraieee@gmail.com" class="social-link social-link--iconized" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=zraieee@gmail.com" rel="noopener" target="_blank" title="zraieee@gmail.com"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/gmail.svg"/></span><span class="email-label">بريد إلكتروني</span></a>
 <a class="social-link social-link--iconized" href="https://www.paypal.com/paypalme/zraiee" rel="noopener" target="_blank"><span class="social-icon"><img alt="" src="https://alzarraei-gpts.github.io/Arabic-GPT-Hub/paypal.svg"/></span><span class="social-label">باي بال</span></a>
@@ -648,7 +678,7 @@ function formatModalContent(content) {
       const label = (cleanedLines[index] || cleanedLines[0] || `رابط ${links.length + 1}`).replace(/^📲\s*/, '').trim();
       const descLines = cleanedLines.filter(line => line !== label);
       const desc = descLines.join(' — ');
-      const featured = /جودة عالية|الرئيس|الكتب التعليمية|باقة صناعة الأفلام|Arabic-film|سكول/i.test(label) || /https:\/\/alzarraei-gpts\.github\.io\/Arabic-film\/?/i.test(url);
+      const featured = /جودة عالية|الرئيس|الكتب التعليمية|باقة المصمم|Arabic-design|سكول/i.test(label) || /https:\/\/alzarraei-gpts\.github\.io\/Arabic-design\/?/i.test(url);
       links.push({ label, url, desc, featured, badge: getLinkBadge(label, url) });
     });
   });
@@ -986,6 +1016,68 @@ const scrollTopBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
   scrollTopBtn.style.display = window.scrollY > 450 ? 'block' : 'none';
 });
+
+
+function setupToolCardAccordions() {
+  const cards = [...document.querySelectorAll('.tool-card')];
+  cards.forEach((card) => {
+    if (card.dataset.accordionReady === '1') return;
+    const meta = card.querySelector('.tool-meta');
+    if (!meta) return;
+
+    card.dataset.accordionReady = '1';
+
+    const shell = document.createElement('div');
+    shell.className = 'tool-meta-shell';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'tool-card-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = `
+      <span class="toggle-copy"><span class="btn-icon icon-meta">🧩</span><span>رؤوس الأدوات</span></span>
+      <span class="toggle-state"><span>إظهار</span><span class="toggle-arrow">▾</span></span>`;
+
+    const preview = document.createElement('div');
+    preview.className = 'tool-meta-preview';
+    [...meta.querySelectorAll('.meta-btn')].forEach((btn) => {
+      const pill = document.createElement('span');
+      pill.className = 'tool-head-pill';
+      pill.textContent = btn.textContent.trim();
+      preview.appendChild(pill);
+    });
+
+    const body = document.createElement('div');
+    body.className = 'tool-meta-body';
+
+    meta.parentNode.insertBefore(shell, meta);
+    shell.appendChild(toggle);
+    shell.appendChild(preview);
+    shell.appendChild(body);
+    body.appendChild(meta);
+
+    const stateLabel = toggle.querySelector('.toggle-state span');
+    const setOpen = (nextOpen) => {
+      card.classList.toggle('tool-open', nextOpen);
+      toggle.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+      if (stateLabel) stateLabel.textContent = nextOpen ? 'إخفاء' : 'إظهار';
+    };
+
+    toggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      setOpen(!card.classList.contains('tool-open'));
+    });
+
+    card.addEventListener('click', (event) => {
+      const interactive = event.target.closest('a, button, input, select, textarea, label');
+      if (interactive) return;
+      setOpen(!card.classList.contains('tool-open'));
+    });
+  });
+}
+
+setupToolCardAccordions();
+
 </script>
 </body>
 </html>
